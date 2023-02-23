@@ -35,6 +35,8 @@ def save_weights(weights, path):
 vae_file_path = args.vae
 model_file_path = args.model
 
+device = args.device
+
 # Name to use for new model file
 new_model_name = args.output
 
