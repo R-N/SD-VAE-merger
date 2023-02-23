@@ -1,5 +1,5 @@
 # SD-VAE-merger
-Script to merge VAE into checkpoint (untested)
+Script to merge SD VAE into checkpoint (untested)
 
 Usage:
 ```
