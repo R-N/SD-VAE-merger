@@ -49,12 +49,12 @@ if 'state_dict' in full_model:
     full_model = full_model["state_dict"]
 if 'state_dict' in vae_model:
     vae_model = vae_model["state_dict"]
-
+    
 # Replace VAE in model file with new VAE
-vae_dict = {k: v for k, v in vae_model["state_dict"].items() if k[0:4] not in ["loss", "mode"]}
+vae_dict = {k: v for k, v in vae_model.items() if k[0:4] not in ["loss", "mode"]}
 for k, _ in vae_dict.items():
     key_name = "first_stage_model." + k
-    full_model['state_dict'][key_name] = copy.deepcopy(vae_model["state_dict"][k])
+    full_model[key_name] = copy.deepcopy(vae_model[k])
 
 # Save model with new VAE
 save_weights(full_model, new_model_name)
